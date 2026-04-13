@@ -1,11 +1,30 @@
 ---
 import { Shader3 } from "./shader3";
+import ScrambledText from "./ScrambledText";
 ---
 
 <main>
-  <section>
-    <div>
+  <section class="relative min-h-screen overflow-hidden">
+    <div class="absolute inset-0">
       <Shader3 client:only="react" />
+    </div>
+    <div
+      class="relative z-10 flex min-h-screen items-center justify-center px-6 text-center"
+    >
+      <div class="flex flex-col items-center">
+        <ScrambledText
+          client:only="react"
+          radius={50}
+          duration={1.2}
+          speed={0.5}
+          scrambleChars=".:"
+        >
+          <h1 class="text-3xl md:text-5xl">Muhammad Danial</h1>
+          <p data-scramble class="text-xl text-center md:text-2xl">
+            Software Engineer
+          </p>
+        </ScrambledText>
+      </div>
     </div>
   </section>
 </main>
