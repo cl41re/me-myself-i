@@ -180,7 +180,9 @@ uniform float uFade;
 void mainImage(out vec4 fc,in vec2 frag){
     vec2 C=iResolution.xy*.5; float invW=1.0/max(C.x,1.0);
     vec2 sc=(512.0/iResolution.xy)*.4;
-    vec2 uv=(frag-C)*sc,off=vec2(uBeamXFrac*iResolution.x*sc.x,uBeamYFrac*iResolution.y*sc.y);
+    vec2 uv=(frag-C)*sc;
+    vec2 beamOffset = vec2(uBeamXFrac - 0.5, 0.5 - uBeamYFrac);
+    vec2 off = beamOffset * iResolution.xy * sc;
     vec2 uvc = uv - off;
     float a=0.0,b=0.0;
     float basePhase=1.5*PI+uDecay*.5; float tauMin=basePhase-uDecay; float tauMax=basePhase;

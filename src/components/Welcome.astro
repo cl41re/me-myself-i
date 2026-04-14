@@ -1,31 +1,123 @@
 ---
 // import { Shader3 } from "./shader3";
-import { Shader0 } from "./shader0";
 import ScrambledText from "./ScrambledText";
+import LaserFlow from "./LaserFlow";
+import DecryptedText from "./DecryptedText";
 ---
 
 <main>
   <section class="relative min-h-screen overflow-hidden">
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[#07030d]">
       <!-- <Shader3 client:only="react" /> -->
       <!-- <Shader0 client:only="react" /> -->
+      <LaserFlow
+        client:only="react"
+        horizontalBeamOffset={0.5}
+        verticalBeamOffset={0.9}
+        horizontalSizing={0.55}
+        verticalSizing={2.2}
+        fogIntensity={0.35}
+        fogScale={0.24}
+        wispIntensity={4.5}
+        wispSpeed={13.5}
+        flowSpeed={0.3}
+        flowStrength={0.2}
+        mouseTiltStrength={0.006}
+        decay={1.15}
+        falloffStart={1.18}
+        color="#ff3ebf"
+      />
     </div>
     <div
-      class="relative z-10 flex min-h-screen items-center justify-center px-6 text-center"
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_38%,rgba(7,3,13,0.2)_58%,rgba(7,3,13,0.72)_100%)]"
     >
-      <div class="flex flex-col items-center">
-        <ScrambledText
-          client:only="react"
-          radius={50}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars=".:"
+    </div>
+    <div
+      class="relative z-10 flex min-h-screen items-center px-6 py-16 sm:px-8 lg:px-14"
+    >
+      <div
+        class="grid w-full gap-12 lg:grid-cols-[minmax(0,1fr)_18rem_minmax(0,1fr)] lg:items-center"
+      >
+        <div
+          class="flex justify-center lg:col-start-1 lg:justify-start lg:pl-10 xl:pl-16"
         >
-          <h1 class="text-3xl md:text-5xl">Muhammad Danial</h1>
-          <p data-scramble class="text-xl text-center md:text-2xl">
-            Software Engineer
-          </p>
-        </ScrambledText>
+          <ScrambledText
+            client:only="react"
+            radius={50}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars=".:"
+            className="m-0 max-w-xl text-center lg:text-left"
+          >
+            <div class="space-y-4">
+              <p class="text-sm uppercase tracking-[0.5em] text-white/45">
+                Cyberjaya
+              </p>
+              <h1
+                class="whitespace-nowrap text-[clamp(2.25rem,6vw,3.75rem)] leading-none text-white"
+              >
+                Muhammad Danial
+              </h1>
+              <p
+                data-scramble
+                class="text-lg leading-relaxed text-white/70 sm:text-xl"
+              >
+                Software engineer.
+              </p>
+            </div>
+          </ScrambledText>
+        </div>
+
+        <div class="hidden lg:block lg:col-start-2"></div>
+
+        <div class="flex justify-center lg:col-start-3 lg:justify-start">
+          <div class="max-w-sm space-y-6 text-center lg:text-left">
+            <p class="text-sm uppercase tracking-[0.34em] text-[#ff8ad7]/70">
+              Focus
+            </p>
+            <p class="text-base leading-relaxed text-white/62 sm:text-lg">
+              <DecryptedText
+                client:only="react"
+                text="Making things work,
+Making things fast,
+Making things beautiful,
+Making things perfect."
+                animateOn="view"
+                revealDirection="start"
+                sequential
+                useOriginalCharsOnly={false}
+              />
+            </p>
+            <div
+              class="flex items-center justify-center gap-4 lg:justify-start"
+            >
+              <nav
+                aria-label="Social links"
+                class="flex items-center gap-4 text-xs tracking-[0.28em] text-white/50 uppercase"
+              >
+                <a
+                  href="https://www.github.com/cl41re"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerpolicy="no-referrer"
+                  class="transition-colors duration-300 hover:text-[#ff8ad7]"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/danialazn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerpolicy="no-referrer"
+                  class="transition-colors duration-300 hover:text-[#ff8ad7]"
+                >
+                  LinkedIn
+                </a>
+                <span class="h-px w-16 bg-white/40"></span>
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
